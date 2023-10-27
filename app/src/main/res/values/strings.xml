@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">FragmentCompose</string>
+
+    <string name="fragment_one">Fragment One</string>
+    <string name="fragment_two">Fragment Two</string>
+
+    <string name="button_launch_fragment_two">Launch Fragment Two</string>
+    <string name="button_launch_fragment_one">Launch Fragment One</string>
+
+    <string name="test_message_fragment_one">Test Successful!</string>
+    <string name="test_message_fragment_two">Test Successful!</string>
+
+</resources>
