@@ -51,6 +51,9 @@ android {
 
 dependencies {
 
+    //This is needed for commit method to use fragments without using layout.xml
+    implementation("androidx.fragment:fragment-ktx:1.4.1")
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")

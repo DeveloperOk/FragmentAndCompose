@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,11 +38,28 @@ class FragmentTwo : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        overrideBackButton()
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
+
+    private fun overrideBackButton() {
+
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true /* enabled by default */) {
+                override fun handleOnBackPressed() {
+                    //Do nothing
+                }
+            }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,11 +92,7 @@ class FragmentTwo : Fragment() {
 
     private fun launchFragmentOne() {
 
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        val fragmentOne = FragmentOne.newInstance("test1", "test2")
-        transaction?.replace(R.id.frameLayout, fragmentOne)
-        transaction?.addToBackStack(null)
-        transaction?.commit()
+        (activity as MainActivity).showFragmentOne()
 
     }
 

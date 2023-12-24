@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.enterprise.fragmentcompose.ui.theme.FragmentComposeTheme
 import com.enterprise.fragmentcompose.ui.theme.buttonFragmentOneColor
@@ -95,12 +96,7 @@ class FragmentOne : Fragment() {
 
     private fun launchFragmentTwo() {
 
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        val fragmentOne = FragmentTwo.newInstance("test1", "test2")
-        transaction?.replace(R.id.frameLayout, fragmentOne)
-        transaction?.addToBackStack(null)
-        transaction?.commit()
-
+        (activity as MainActivity).showFragmentTwo()
 
     }
 
